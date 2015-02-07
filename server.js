@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 var me = {
 	name: "doug",
 	location: "provo",
-	hobbies: ["coding", "lifting", "yoloing"],
+	hobbies: ["lifting", "coding", "yoloing"],
 	occupations: ["inventor", "coder", "entrepreneur"]
 };
 
@@ -30,17 +30,38 @@ app.get('/location', function(req, res) {
 });
 
 app.get('/hobbies', function(req, res) {
-	for (var i = 0; i < me.hobbies.length; i++) {
-		res.send(me.hobbies[i]);
-	};
+	
+		if(req.query.hobbies === 'true') {
+			res.send(me.hobbies.sort());
+		} 
+		else if(req.query.hobbies === 'false') {
+			res.send(me.hobbies.sort().reverse());
+		}
+		else if (req.query.hobbies === '') {
+			res.send(me.hobbies);
+		}
+	
 });
 
+
 app.get('/occupations', function(req, res) {
-	for (var i = 0; i < me.occupations.length; i++) {
-		res.send(me.occupations[i]);	
-	};	
+		if(req.query.occupations === 'true') {
+			res.send(me.occupations.sort());	
+		}
+		else if(req.query.occupations === 'false') {
+			res.send(me.occupations.sort().reverse());
+		}
+		else if(req.query.occupations === '') {
+			res.send(me.occupations);
+		}
 });
 
 app.get('/occupations/latest', function(req, res) {
 	res.send(me.occupations[me.occupations.length - 1]);
 });
+
+// app.get('/hobbies', function(req, res) {
+
+// })
+
+
