@@ -93,7 +93,7 @@ app.get('/mentions', function(req, res) {
 });
 
 app.post('/mentions', function(req, res) {
-	me.mentions.push(req.body);
+	me.mentions.push(req.body.text);
 	res.send(req.body);
 });
 
@@ -102,8 +102,8 @@ app.get('/references', function(req, res) {
 });
 
 app.post('/references', function(req, res) {
-	me.references.push(req.body);
-	res.send(req.body);
+	me.references.push(req.body.text);
+	res.send(me.references);
 });
 
 app.get('/skills', function(req, res) {

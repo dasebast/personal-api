@@ -9,15 +9,17 @@ app.controller('meCtrl', function($scope, mainService) {
 	});
 
 	mainService.getData("occupations").then(function(response) {
-		console.log(response);
+		// console.log(response);
 		$scope.occupations = response.data;
 	});
 
 	mainService.getData("mentions").then(function(response) {
+		
 		$scope.mentions = response.data;
 	});
 
 	mainService.getData("references").then(function(response) {
+		console.log(response);
 		$scope.references = response.data;
 	});
 
