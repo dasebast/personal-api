@@ -4,14 +4,11 @@ app.controller('homeCtrl', function($scope, mainService) {
 
 	$scope.test = "hola mundo";
 
-	$scope.showName = function() {
-		mainService.getName()
-			.then(function(data) {
-				$scope.myName = data;
-			})
-	};
+	mainService.getName("name").then(function(response) {
+		$scope.name = response.data;
+	});
+	
 
-	// $scope.showName = mainService.getName();
 
 	
 

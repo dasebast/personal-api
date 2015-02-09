@@ -1,15 +1,16 @@
 var app = angular.module('personalApi');
 
-app.service('mainService', function($http) {
+app.service('mainService', function($http, $q) {
 
-	this.getName = function() {
-		return $http.get('http://localhost:9006/')
+	this.getName = function(str) {
+		var dfd = $q.defer();
+		$http.get('http://localhost:9006/' + str)
 			.then(function(response) {
-				console.log(name);
-				return response.name;
+				dfd.resolve(response);
 			})
+			return dfd.promise;
 	};
 
-	this.getName();
+
 
 });

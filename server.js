@@ -46,6 +46,10 @@ app.use(function(req, res, next) {
 	next();
 });
 
+app.get('/', function(req, res) {
+	res.send(me);
+});
+
 app.get('/name', function(req, res) {
 	res.send(me.name);
 });
