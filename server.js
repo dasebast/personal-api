@@ -7,10 +7,10 @@ app.listen(port);
 app.use(bodyParser.json());
 
 var me = {
-	name: "doug",
-	location: "provo",
+	name: "Doug",
+	location: "Provo",
 	hobbies: ["lifting", "coding", "yoloing"],
-	occupations: ["inventor", "coder", "entrepreneur"],
+	occupations: ["inventing", "coding", "entrepreneurship"],
 	mentions: ["twitter", "facebook", "reddit"],
 	references: ["guy1", "guy2", "guy3"],
 	skills: [
@@ -73,13 +73,13 @@ app.get('/hobbies', function(req, res) {
 });
 
 app.get('/occupations', function(req, res) {
-		if(req.query.occupations === 'true') {
+		if(req.query.abc === 'asc') {
 			res.send(me.occupations.sort());	
 		}
-		else if(req.query.occupations === 'false') {
+		else if(req.query.abc === 'desc') {
 			res.send(me.occupations.sort().reverse());
 		}
-		else if(req.query.occupations === '') {
+		else {
 			res.send(me.occupations);
 		}
 });
@@ -128,4 +128,10 @@ app.get('/skills', function(req, res) {
 	else if (!req.query.exp) {
 		res.send(me.skills);
 	}
+
+	// else if (!req.query.exp) {
+	// 	for (var i  = 0; i < me.skills.length; i++) {
+	// 		res.send(me.skills[i].name);
+	// 	}
+	// }
 });

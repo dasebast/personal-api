@@ -1,1 +1,27 @@
-me test
+<h1>About Me</h1>
+
+
+<h3>My hobbies are:</h3> 
+<ul> 
+	<li ng-repeat="hobby in hobbies">{{hobby}}</li>
+</ul>
+
+<h3>I am occupied with:</h3>
+<ul>
+	<li ng-repeat="occupation in occupations">{{occupation}}</li>
+</ul>
+
+<h3>I have been mentioned in the following places:</h3>
+<ul>
+	<li ng-repeat="mention in mentions">{{mention}}</li>
+</ul>
+
+<h3>My references are from:</h3>
+<ul>
+	<li ng-repeat="reference in references">{{reference}}</li>
+</ul>
+
+ 
+<form ng-submit="referenceAdd()">
+	<input type="text" ng-model="referenceText"/>
+</form>
